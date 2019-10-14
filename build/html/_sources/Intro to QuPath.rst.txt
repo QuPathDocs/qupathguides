@@ -1,0 +1,18 @@
+
+===============
+Intro to QuPath
+===============
+.. toctree::
+   :maxdepth: 1
+   Interface
+   Objects in QuPath
+   Starting a project
+   Versions
+
+
+Overview:
+
+Intended as a guide for new users with links to topics of interest, hopefully streamlining the experience. If you see anything that should be corrected, please message me!
+
+Some quick links (I am hoping to figure out how to make a map at some point…)
+

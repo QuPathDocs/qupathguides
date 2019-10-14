@@ -1,0 +1,8 @@
+=============
+Coding Basics
+=============
+
+Intro to coding
+^^^^^^^^^^^^^^^
+
+This is how we code it.

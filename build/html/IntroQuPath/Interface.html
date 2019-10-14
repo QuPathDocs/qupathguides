@@ -1,0 +1,181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Interface &#8212; QuPath  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Objects in QuPath" href="Objects in QuPath.html" />
+    <link rel="prev" title="Intro to QuPath" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="interface">
+<h1>Interface<a class="headerlink" href="#interface" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="../_images/interface.png"><img alt="../_images/interface.png" src="../_images/interface.png" style="width: 800px;" /></a>
+<div class="section" id="overview">
+<h2>Overview:<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The menus are at the top, a button bar with a variety of quick access options is below that, the Analysis panel is on the left (in yellow), and the Viewer takes up most of the screen space in the lower right.</p>
+<p><strong>Menus at the top:</strong>
+Some notes of interest. If you are having memory issues (Java out of memory errors), you will likely want to look in <em>Help-&gt;Show setup options</em> to adjust your maximum allowed memory. If you are running into strange errors on a variety of projects, one of the first things to try is <em>Edit-&gt;Reset preferences</em>. The View menu has several options that are not immediately available on the button bar, such as showing TMA grid labels, filling in annotations (useful for distinguishing tumor/stroma regions), or adjusting what parts of cells are shown.</p>
+</div>
+<div class="section" id="button-bar">
+<h2>Button bar:<a class="headerlink" href="#button-bar" title="Permalink to this headline">¶</a></h2>
+<p><strong>Orange:</strong> The ruler turns on and off the left hand set of tabs, called the analysis panel. This can be useful if you need more screen space for manual annotations. The crossed arrows is the Move tool (M key), and will be your default method of navigating the image. Left click within the Viewer and drag in most places to move the view.</p>
+<p>An exception to this is if you have an unlocked annotation. In that case, you will select the annotation and drag it. On that note, BE CAREFUL WHEN EDITING UNLOCKED SIMPLE TISSUE DETECTIONS; accidentally dragging these around in 0.1.2 was, occasionally, heartbreaking. In 0.1.3+ the <em>Edit-&gt;Undo function</em> (CTRL+Z) can be very useful here. In 0.1.2, hopefully your data is saved (and saved often), and you can use CTRL+R to revert (also in File menu).</p>
+<p><strong>Red:</strong> These are some annotation drawing tools that I almost never use. The line tool can be useful for measuring distances. Their use is pretty straightforward. All initially created annotations start unlocked.</p>
+<p><strong>Green:</strong> These are the bread and butter of manual annotation. The Brush tool (B key) and Wand tool (W key) are both strongly linked to the current zoom (unless you turn this off in Preferences), so use that to your advantage. Both tools have one or more options in the Preferences menu that can be used to modify their effects. Holding the ALT key while drawing with either will act as an eraser. In 0.1.3+ CTRL+SHIFT+tool will draw up to, but not cross over into, existing annotations. The wand tool’s behavior is dependent on what is visible on screen. That includes color transformations in brightfield (looking at the Eosin “channel”), or turning on and off channels in multichannel images. Zooming out and only displaying a single channel or color transform can be a very easy way to quickly annotate large tumor areas.</p>
+<p>I usually have M, B, and W, bound to various buttons on a multifunction gaming mouse.</p>
+<p><img alt="points" src="../_images/points.png" /> Points tool: Create annotation object points manually. If you want to pick out objects that image analysis methods are not currently working for, or want to have a biologist/pathologist mark the correct “targets” for an image analyst to try and create an algorithm to find, this may be the tool for you.</p>
+<p><strong>Purple:</strong> A selection of tools to modify what is shown within the Viewer. The first is the Brightness and contrast dialog, which can be used to adjust the visibility of various channels or, surprise, surprise, the brightness and contrast of brightfield images. Many of these options can be controlled through the number keys, which is especially handy in low channel number (&lt;10) multiplex images. The main trick to this dialog that might not be immediately obvious is that you can double click on the Min display or Max display to see and edit the exact value.</p>
+<img alt="../_images/brightness.png" src="../_images/brightness.png" />
+<p><strong>Magnification:</strong> The number immediately to the right of the Brightness and contrast button is the current magnification of the Viewer. Normally zoom would be controlled with the mouse wheel, but you can also double click this to manually edit the zoom. Useful when taking equivalent screenshots across multiple areas or images.</p>
+<p><strong>Fit to Viewer:</strong> The magnifying glass with a square zooms out (or in) until the entire image fits within the viewer.</p>
+<p><strong>Object buttons:</strong> These determine the visibility of various types of objects. The first turns annotations on or off, the second controls the TMA grid, the third detection outlines (tiles or cells), and the fourth fills in the tiles or cells. The fill has no effect if the detection outlines are not visible. The fill can be very useful when looking at classified detections, or when using <em>Measure-&gt;Show measurement maps</em>.</p>
+<p><strong>Note:</strong> Selected objects will always be visible regardless of these settings. 0.2.0m# has an option where this behavior can be toggled.</p>
+<p><strong>Slider:</strong> Opacity of all objects, including selected objects. Fear that nothing is working is often the result of having turned this all the way down and then forgotten about it.</p>
+<p><img alt="measure" src="../_images/measurements.png" /> <strong>Measurements:</strong> Quick access to dialogs that have various measurements listed for different object types.</p>
+<p><img alt="pref" src="../_images/preferences.png" /> <strong>Preferences:</strong> Where you can change many of the ways QuPath behaves, or how varous file types are treated, etc.</p>
+<p><img alt="ij" src="../_images/imagej.png" /> <strong>ImageJ:</strong> Quick access for sending regions to ImageJ.</p>
+<p>New in 0.2.0m#</p>
+<img alt="../_images/select.png" src="../_images/select.png" />
+<p><strong>Green:</strong> Select tool. The brush, wand and other area tools can now be used to create temporary structures that select every sub-object completely contained within them.</p>
+<p><strong>Blue:</strong> Pixel classifier visibility.</p>
+</div>
+<div class="section" id="analysis-panel">
+<h2>Analysis Panel:<a class="headerlink" href="#analysis-panel" title="Permalink to this headline">¶</a></h2>
+<p><strong>Project tab:</strong> As shown above, this is your list of images within your project, and is the primary way to create a new project, add images, or remove images in 0.1.2.</p>
+<p>0.2.0m# has added significantly more functionality to this tab, including the ability to add metadata tags for a hierarchy like structure, selecting groups of images for removal, etc. Below shows adding a metadata tag for “Group” A and B, and then sorting by “Group” metadata.</p>
+<img alt="../_images/project.png" src="../_images/project.png" />
+<p><strong>Image tab:</strong> This tab is probably the most important to share when asking for help on the forum, as much of what goes wrong with images and image analysis stems from settings found here. Missing Pixel width and Pixel height metadata is one of the more common problems.</p>
+<img alt="../_images/image.png" src="../_images/image.png" />
+<p><strong>Annotations and Hierarchy tabs:</strong> Similar in many ways, as they both show a list of objects, and have a data table for the bottom half of their viewing area that shows the measurement list of a selected object. Annotations shows only annotations, and no order indicating whether any annotation is contained within another. It also has an editable list of available classes. You can create new ones by right clicking, or edit the color of a class by double clicking on it. Right clicking on existing classes also gives a variety of options including the ability to toggle a class’s visibility on/off. The Hierarchy tab lacks the class options, but uses the extra space to show what objects are contained within other objects. This list can become quite cumbersome to navigate with hundreds of thousands of detections (and slow down performance), so 0.1.3+ has options within Preferences to toggle off detections within the list.</p>
+<img alt="../_images/tabs.png" src="../_images/tabs.png" />
+<p>The four buttons in the middle of the Annotation pane mostly control annotations. Delete and Delete all do exactly what they say, to either the selected annotation or all annotations. Set class takes both the currently selected annotations and the currently selected class (single left click), and assigns that class to the annotation. Auto set saves a couple of clicks by assigning newly created annotations to the selected class.</p>
+<img alt="../_images/workflow.png" src="../_images/workflow.png" />
+<p>Workflow tab: Mostly used at the end of an analysis project, this tracks most of what you have done (not all functions are included), and can be used to generate a quick script including most steps. Generally you will want to take the total script and delete out all of the lines of duplicate attempts, then tidy up what remains of the actual analysis. I prefer to do this within the script, but you can start with Create workflow and edit the script through a graphical interface as well. Any individual function that will show up in the script can also be selected in the Command history in order to view what parameter values were used.</p>
+</div>
+<div class="section" id="viewer">
+<h2>Viewer:<a class="headerlink" href="#viewer" title="Permalink to this headline">¶</a></h2>
+<p>The main viewing area. Once you have “clicked into” this, you can use the drawing tools, the 1-0 keys to control what is visible, among other things. Some functions will not work unless the Viewer is the “active window.”</p>
+<p>In the upper right you will see your slide overview thumbnail, and, usually, a red rectangle indicating where the viewing area currently is. You can click within this “map” to move the Viewer to a different location. In the lower left and lower right the scale bar and location plus pixel values can be found (unless turned off in the View menu).</p>
+<img alt="../_images/viewer.png" src="../_images/viewer.png" />
+<p>Right clicking on a selected annotation within the viewing area brings up a context menu that includes a few important options, including the ability to lock or unlock the current annotation.</p>
+<img alt="../_images/context.png" src="../_images/context.png" />
+<p><strong>Multi-view:</strong> Regardless of whether you have an object selected, the context menu for the Viewer should always include the Multi-view option, which allows you to add rows and columns in order to view additional images at the same time. This can be very useful for sequential slice studies.</p>
+<img alt="../_images/multiview.png" src="../_images/multiview.png" />
+<p>Off-topic but related, 0.2.0m# introduces the <em>View-&gt;Mini viewers-&gt;Show channel viewer</em>, which can allow simultaneous, but separate, visualization of all channels in an image at once.</p>
+<img alt="../_images/channelview.png" src="../_images/channelview.png" />
+<p>This concludes your basic tour of the interface, and should give you enough information to get started! If you are familiar with creating projects, jump straight to the first steps in analysis, or learn more about starting a project and why it is important.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">QuPath</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Intro to QuPath</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects in QuPath.html">Objects in QuPath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Starting a project.html">Should you start a project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Which version should I use.html">Versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroCoding/index.html">Coding Basics</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Intro to QuPath</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Intro to QuPath</a></li>
+      <li>Next: <a href="Objects in QuPath.html" title="next chapter">Objects in QuPath</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, microscopyRA.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/IntroQuPath/Interface.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

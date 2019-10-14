@@ -1,0 +1,143 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Should you start a project? &#8212; QuPath  documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Versions" href="Which version should I use.html" />
+    <link rel="prev" title="Objects in QuPath" href="Objects in QuPath.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="should-you-start-a-project">
+<h1>Should you start a project?<a class="headerlink" href="#should-you-start-a-project" title="Permalink to this headline">¶</a></h1>
+<p>Well, unless you want to quickly open an image and take a look at it, the answer is “almost always.” Some features will only work in projects, many scripts will only work in projects (as exported files and folders look specifically along the “project” file path). It will also allow you to quickly and uniformly apply your script/pipeline to a large set of images.
+As of 0.2.0m3, some image types with multiple scenes or sub-files will only open in projects.</p>
+<p>To start a project you will need an empty folder.</p>
+<p>0.1.2+ - Use the Create project button in the Project tab, select your folder.</p>
+<p>0.1.3+ - Drag an empty folder into the open QuPath window
+Import images</p>
+<p>I recommend placing the images you want to analyze within the project folder whenever possible. This makes the project as a whole more portable, as you can copy it onto the network, a USB drive, etc, and open it anywhere without disrupting the file path to the images.</p>
+<p>0.1.2+ - Drag a single image into the QuPath window that has a project active. Or in the Project tab, click Import images which will allow you to navigate to the image location and select large numbers of images.</p>
+<p>0.2.0m3+ - Select and drag large numbers of images into an open QuPath project. Requires a project to be open, follow the dialog instructions after.</p>
+<p>Once you import an image, a project file (project.qpproj) will be generated in the project folder. Since I work with many projects, and in Windows, I find it useful to rename the project. Once it has been run (by double clicking it), it can be accessed more quickly by right clicking on the QuPath icon on the taskbar, which will then have it in the list of recently opened files.
+image
+image.png368×872 44.4 KB</p>
+<p>It isn’t going to be quite so easy to figure out what all of those “project” projects were.</p>
+<p>Project files themselves are the .qpproj file within the originally empty project folder. This is what you would run, or drag into an open QuPath window, or open through the file menu. The data files are stored in the “data” folder, and are named based on their association with an image file. They store all of the objects you see in the overlays (annotations, detections). If you are doing something destructive with your data, it is sometimes a good idea to back this folder up somewhere else so you can return to a previous step if you don’t like the results after a “Run for project.”</p>
+<p>In 0.1.2/3 you will usually get a Scripts folder within the project if you save scripts in the default location (Automate-&gt;Project scripts). This function is broken for 0.2.0 through at least m4, and you will have to rely on setting a scripting directory for all of QuPath.</p>
+<p>If you create a trained classifier, you will also get a “classifiers” folder.</p>
+<p>Additional folders can be created (like the Images folder mentioned above) without interfering with the project itself, though I don’t recommend editing file names until you are comfortable with how the project works.</p>
+<p>You now have a project and area ready to either learn more about how objects in QuPath work, or jump into your analysis.</p>
+<ul class="simple">
+<li><a class="reference internal" href="../genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="../py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="../search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">QuPath</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Intro to QuPath</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Interface.html">Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Objects in QuPath.html">Objects in QuPath</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Should you start a project?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Which version should I use.html">Versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../IntroCoding/index.html">Coding Basics</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Intro to QuPath</a><ul>
+      <li>Previous: <a href="Objects in QuPath.html" title="previous chapter">Objects in QuPath</a></li>
+      <li>Next: <a href="Which version should I use.html" title="next chapter">Versions</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, microscopyRA.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/IntroQuPath/Starting a project.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
